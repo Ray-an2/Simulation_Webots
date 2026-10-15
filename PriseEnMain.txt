@@ -1,3 +1,35 @@
 Par défaut : 65 - 70
  du capteur 2% > 80 ?
  100% -> 4000
+ 
+ Quel sont les valeurs des moteurs du robots dans ces états ?
+ - forward : 40L 40R
+ - turn right : 20L -10R
+ - turn left : -10L 20R
+ - return : 30L 30R
+ 
+ Combien de transitions existes ?
+ On a un nombre de 8 transitions : 
+ forward (left obstacle) -> turn right
+ forward (left obstacle2) -> turn right
+ turn right (waitR) -> forward
+ 
+ forward (front obstacle) -> return
+ return (wait_return) -> forward
+ 
+ forward (right obstacle) -> turn left
+ forward (right obstacle2) -> turn left
+ turn left (waitL) -> forward
+ 
+ Quels sont les valeurs des transitions
+ - left obstacle : ps7 > 3
+ - left obstacle2 : ps6 > 3
+ - waitR : ps6 < 2, ps7 < 3, ps0 < 0, ps1 < 2
+ 
+ - front_obstacle
+ - wait_return : ps6 < 2, ps7 < 3, ps0 < 0, ps1 < 2, delay = 0.5
+ 
+ - right obstacle : ps0 > 3
+ - right obstacle2 : ps1 > 3
+ - waitL : ps6 < 2, ps7 < 3, ps0 < 0, ps1 < 2
+ 
